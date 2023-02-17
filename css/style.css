@@ -44,6 +44,7 @@ body {
     border: 2px solid rgba(0, 0, 0, .75);
     height: 140px;
     width: 140px;
+    cursor: pointer;
     }
     #reset-button {
     text-align: center;
