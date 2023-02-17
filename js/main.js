@@ -24,6 +24,8 @@ let scoreboard = {x : 0, o :0};
 
 const click = new Audio("sounds/click.wav"); //sounds everytime we click 
 
+const winnerGif = docum.getElementById("gif4Winners");
+
 /*--------------- cached element references --------------*/
 const squares = Array.from(document.querySelectorAll('#board div')); 
     //queryselectorall () allows us to find the element with the id of .board and selecting all the div children of that element(grabs a secion of a div)
@@ -44,7 +46,10 @@ function init() { //init function to check if squares are present
     '', '', ''
     ];
 
+    winnerGif.style.display = 'none';
+
     render();   
+
 
     };
 
@@ -90,8 +95,13 @@ getWinner = () => { //new way to write a function called arrow function
         
         if (board[combo[0]] && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) winner = board[combo[0]];
   });
-  //if winner return winner : ELSE IF board includes a space then return null(no winner) : ELSE no winner and no empty spaces thats a Tie 'T'
-  return winner ? winner : board.includes('') ? null : 'T';
+
+    winner ? winnerGif.style.display = '' : {};
+
+    //if winner return winner : ELSE IF board includes a space then return null(no winner) : ELSE no winner and no empty spaces thats a Tie 'T'
+    return winner ? winner : board.includes('') ? null : 'T';
+
+
 };
 
     // getWinner = () => {
